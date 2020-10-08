@@ -29,7 +29,7 @@ body {
       }
 
       ul {
-        height: 270px;
+        max-height: 270px;
         overflow-y: scroll;
         text-align: left;
         max-width: 300px;

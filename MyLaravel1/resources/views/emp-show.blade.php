@@ -18,7 +18,7 @@
       <li>
         &#8226; Location: <br>
         <a href="{{route('loc.show', $emp -> location -> id)}}">
-          {{$emp -> location -> street}} -
+          {{$emp -> location -> name}} -
           {{$emp -> location -> city}} -
           {{$emp -> location -> state}}
         </a>
@@ -38,7 +38,7 @@
       </li>
     </ul>
     <br>
-    <a href="#">EDIT</a>
+    <a href="{{route('emp.edit', $emp -> id)}}">EDIT</a>
     <br>
     <a href="{{route('emp.destroy', $emp -> id)}}">DELETE</a>
     <br>

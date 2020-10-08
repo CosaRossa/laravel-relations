@@ -1,28 +1,28 @@
 @extends('layouts.main-layout')
 @section('content')
-  <h2>NEW EMPLOYEE</h2>
+  <h2>EDIT EMPLOYEE</h2>
   <div class="main-container">
-    <form action="{{route('emp.store')}}" method="post">
+    <form action="{{route('emp.update', $emp -> id)}}" method="post">
       @csrf
       @method('POST')
       <div class="form-group">
         <label for="firstname">Firstname:</label> <br>
-        <input type="text" name="firstname" value="">
+        <input type="text" name="firstname" value="{{$emp -> firstname}}">
       </div>
       <br>
       <div class="form-group">
         <label for="lastname">Lastname:</label> <br>
-        <input type="text" name="lastname" value="">
+        <input type="text" name="lastname" value="{{$emp -> lastname}}">
       </div>
       <br>
       <div class="form-group">
         <label for="date_of_birth">Date of Birth:</label> <br>
-        <input type="date" name="date_of_birth" value="">
+        <input type="date" name="date_of_birth" value="{{$emp -> date_of_birth}}">
       </div>
       <br>
       <div class="form-group">
         <label for="private_code">Private Code:</label> <br>
-        <input type="number" name="private_code" value="">
+        <input type="number" name="private_code" value="{{$emp -> private_code}}">
       </div>
       <br>
       <div class="form-group">
@@ -30,7 +30,12 @@
         <select name="location_id">
           @foreach ($locs as $loc)
             <a href="{{route('loc.show', $loc -> id)}}">
-              <option value="{{$loc -> id}}">{{$loc -> name}} - {{$loc -> state}}</option>
+              <option value="{{$loc -> id}}"
+                {{-- Check if the location is the same as the employee's location --}}
+                @if ($loc -> id === $emp -> location -> id)
+                  selected
+                @endif
+              >{{$loc -> name}} - {{$loc -> state}}</option>
             </a>
           @endforeach
         </select>
