@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* a {
+  color: #000;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: pink;
+  text-align: center;
+}
+
+body .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column;
+}
+
+body .container .main-container h2 {
+  margin: 20px auto;
+}
+
+body .container .main-container ul {
+  height: 270px;
+  overflow-y: scroll;
+  text-align: left;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+body .container .main-container ul li {
+  margin: 15px auto;
+}
+
